@@ -5,18 +5,37 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Test</title>
+	<style>
+		body {
+			margin: 0;
+
+			display: flex;
+			justify-content: center;
+		}
+		#content {
+
+
+			padding: 0.5rem 2rem;
+			max-width: 1024px;
+		}
+	</style>
 </head>
 <body>
 	<div id="content"></div>
     
     <script type="module">
-        import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+		fetch('content.html')
+				.then(res => res.text())
+				.then(text => {
+					document.getElementById('content').innerHTML = text;
+				})
+      /*  import { marked } from 'https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js';
 
 		fetch('content.md')
 			.then(res => res.text())
 			.then(text => {
 				document.getElementById('content').innerHTML = marked.parse(text);
-			});
+			});*/
     </script>
 </body>
 </html>
